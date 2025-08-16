@@ -31,9 +31,10 @@
       <img src="https://randomuser.me/api/portraits/men/88.jpg" class="avatar" />
       <div class="dropdown-menu" [class.show]="userDropdownOpen">
         <p class="username">Admin</p>
-        <button (click)="logout()" class="logout-btn">
-          <i class="fa-solid fa-right-from-bracket"></i> Logout
-        </button>
+<button (click)="logout($event)" class="logout-btn">
+  <i class="fa-solid fa-right-from-bracket"></i> Logout
+</button>
+
       </div>
     </div>
   </div>
