@@ -1,0 +1,694 @@
+{
+	"info": {
+		"_postman_id": "fa376576-9319-46a3-b144-1f0e467c478f",
+		"name": "Travel App API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29193492",
+		"_collection_link": "https://planetary-zodiac-211633.postman.co/workspace/EGY-V~5d652b13-45e5-4906-9b3b-7bbb4c65048d/collection/29193492-fa376576-9319-46a3-b144-1f0e467c478f?action=share&source=collection_link&creator=29193492"
+	},
+	"item": [
+		{
+			"name": "Website",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "John Doe",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mohamedelmala70@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "1234567890",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "30",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Password123",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Cairo, Egypt",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"description": "متحطش صور لان فيرسل مش بيحمل الصور الا لو مدفوع بس على هوستينجر هتشتغل علطول متقلقش (ودى صوره البطاقه اللى هو كان طالبها اختيارى )",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/website/register",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"website",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify OTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"mohamedelmala70@gmail.com\",\n  \"otp\": \"79602438\"\n}"
+						},
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/website/verify-otp",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"website",
+								"verify-otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resend OTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"mohamedelmala70@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/website/resend-otp",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"website",
+								"resend-otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"mohamedelmala70@gmail.com\",\n  \"password\": \"Password123\"\n}"
+						},
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/website/login",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"website",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Trips",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"destination\":\"Giza\",\r\n    \"date\":\"2024-06-01\",\r\n    \"travelers\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/website/filter-trips",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"website",
+								"filter-trips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Booking/trip_id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"email\": \"john@example.com\",\n  \"phone\": \"1234567890\",\n  \"date\": \"2024-06-01\",\n  \"number_of_travellers\": \"2\"\n}"
+						},
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/website/create-booking/6871a56a14628900dd4417c3",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"website",
+								"create-booking",
+								"6871a56a14628900dd4417c3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_trips",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/website/get_all_trips",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"website",
+								"get_all_trips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_details_trip/trip_id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/website/get_trip/6871a56a14628900dd4417c3",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"website",
+								"get_trip",
+								"6871a56a14628900dd4417c3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Register Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Admin\",\n  \"email\": \"admin@gmail.com\",\n  \"password\": \"AdminPass123\"\n}"
+						},
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/dashboard/register",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"dashboard",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@gmail.com\",\n  \"password\": \"AdminPass123\"\n}"
+						},
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/dashboard/login",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"dashboard",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Trip",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <admin_token>"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Pyramids of Giza",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Ancient wonders...",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "45",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Giza",
+									"type": "text"
+								},
+								{
+									"key": "rating",
+									"value": "4.9",
+									"type": "text"
+								},
+								{
+									"key": "about_this_experience",
+									"value": "Experience the magnificence...",
+									"type": "text"
+								},
+								{
+									"key": "highlights",
+									"value": "Skip-the-line access",
+									"type": "text"
+								},
+								{
+									"key": "whatis_included",
+									"value": "Fast-track entrance tickets",
+									"type": "text"
+								},
+								{
+									"key": "available_date",
+									"value": "2024-06-01",
+									"type": "text"
+								},
+								{
+									"key": "time",
+									"value": "4 hours",
+									"type": "text"
+								},
+								{
+									"key": "available_seats",
+									"value": "15",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/dashboard/create_trip",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"dashboard",
+								"create_trip"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trip By ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <admin_token>"
+							}
+						],
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/dashboard/get_trip/6871a56a14628900dd4417c3",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"dashboard",
+								"get_trip",
+								"6871a56a14628900dd4417c3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Trips",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <admin_token>"
+							}
+						],
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/dashboard/get_all_trips",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"dashboard",
+								"get_all_trips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Trip",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <admin_token>"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Pyramids of Giza 55",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Ancient wonders...",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/dashboard/edit_trip/6871a56a14628900dd4417c3",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"dashboard",
+								"edit_trip",
+								"6871a56a14628900dd4417c3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Trip",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <admin_token>"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/app/dashboard/delete_trip/6870265e328a5c9c19b481fc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"app",
+								"dashboard",
+								"delete_trip",
+								"6870265e328a5c9c19b481fc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bookings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <admin_token>"
+							}
+						],
+						"url": {
+							"raw": "https://egy-v.vercel.app/app/dashboard/get_all_bookings",
+							"protocol": "https",
+							"host": [
+								"egy-v",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"app",
+								"dashboard",
+								"get_all_bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Booking",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <admin_token>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"email\": \"john@example.com\",\n  \"phone\": \"1234567890\",\n  \"date\": \"2024-06-01\",\n  \"number_of_travellers\": \"2\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/app/dashboard/edit_booking/<booking_id>",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"app",
+								"dashboard",
+								"edit_booking",
+								"<booking_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Booking",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <admin_token>"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/app/dashboard/delete_booking/<booking_id>",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"app",
+								"dashboard",
+								"delete_booking",
+								"<booking_id>"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

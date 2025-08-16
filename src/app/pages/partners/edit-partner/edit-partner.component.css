@@ -1,0 +1,73 @@
+.edit-partner-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  text-align: right;
+}
+
+.edit-partner-container h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.edit-partner-container label {
+  display: block;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.edit-partner-container input[type="text"],
+.edit-partner-container textarea,
+.edit-partner-container input[type="file"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.edit-partner-container input[type="text"]:focus,
+.edit-partner-container textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+.edit-partner-container textarea {
+  resize: none;
+}
+
+.edit-partner-container button {
+  width: 100%;
+  background-color: #3b82f6;
+  color: #fff;
+  padding: 0.75rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.edit-partner-container button:hover {
+  background-color: #2563eb;
+}
+
+.edit-partner-container i {
+  font-size: 1.1rem;
+}

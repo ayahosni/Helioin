@@ -1,0 +1,43 @@
+<div class="page-container">
+  <h1 class="page-title">قائمة طلبات عرض العقارات</h1>
+
+  <div *ngIf="forms.length === 0" class="no-data">
+    لا يوجد بيانات
+  </div>
+
+  <div class="table-wrapper">
+    <table class="forms-table">
+      <thead>
+        <tr>
+          <th>الصورة</th>
+          <th>الاسم</th>
+          <th>الوصف</th>
+          <th>المساحة</th>
+          <th>الموقع</th>
+          <th>اسم العميل</th>
+          <th>الهاتف</th>
+          <th>البريد الإلكتروني</th>
+          <th>الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let form of forms">
+          <td>
+            <img *ngIf="form.image" [src]="getImageUrl(form.image)" alt="صورة العقار" class="form-image">
+          </td>
+          <td>{{ form.name || 'بدون اسم' }}</td>
+          <td>{{ form.description || '-' }}</td>
+          <td>{{ form.space || '-' }}</td>
+          <td>{{ form.location || '-' }}</td>
+          <td>{{ form.client_name || '-' }}</td>
+          <td>{{ form.client_phone || '-' }}</td>
+          <td>{{ form.client_gmail || '-' }}</td>
+          <td>
+            <button (click)="deleteForm(form._id)" class="btn-delete">            <i class="fa-solid fa-trash"></i>
+</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

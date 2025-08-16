@@ -1,0 +1,39 @@
+<div class="edit-partner-container p-6 max-w-lg mx-auto bg-white rounded-lg shadow-md rtl">
+  <h1 class="text-2xl font-bold mb-6 text-gray-800 text-right">تعديل الشريك</h1>
+
+  <div class="mb-4">
+    <label class="block mb-2 text-gray-700 font-medium">الاسم:</label>
+    <input 
+      type="text" 
+      [(ngModel)]="name" 
+      placeholder="أدخل اسم الشريك"
+      class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+    />
+  </div>
+
+  <div class="mb-4">
+    <label class="block mb-2 text-gray-700 font-medium">الوصف:</label>
+    <textarea 
+      [(ngModel)]="description" 
+      placeholder="أدخل وصف الشريك"
+      class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+      rows="4"
+    ></textarea>
+  </div>
+
+  <div class="mb-4">
+    <label class="block mb-2 text-gray-700 font-medium">الصورة:</label>
+    <input 
+      type="file" 
+      (change)="onFileChange($event)" 
+      class="w-full text-gray-700"
+    />
+  </div>
+
+  <button 
+    (click)="updatePartner()"
+    class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-3 rounded-lg shadow-md flex items-center justify-center gap-2 transition-all"
+  >
+    <i class="fa-solid fa-floppy-disk"></i> حفظ التغييرات
+  </button>
+</div>

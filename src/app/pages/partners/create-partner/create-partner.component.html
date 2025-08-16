@@ -1,0 +1,16 @@
+<div class="add-partner-form">
+  <h1>إضافة شريك</h1>
+
+  <label for="name">الاسم:</label>
+  <input type="text" id="name" [(ngModel)]="name" placeholder="أدخل اسم الشريك" />
+
+  <label for="description">الوصف:</label>
+  <textarea id="description" [(ngModel)]="description" placeholder="أدخل وصف الشريك"></textarea>
+
+  <label for="image">الصورة:</label>
+  <input type="file" id="image" (change)="onFileChange($event)" />
+
+  <button (click)="createPartner()">
+    <i class="fa-solid fa-plus"></i> إضافة
+  </button>
+</div>

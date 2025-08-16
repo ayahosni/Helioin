@@ -1,0 +1,40 @@
+<div class="page-container">
+  <h2 class="page-title">نماذج طلبات الديكور</h2>
+
+  <div class="table-wrapper">
+    <table class="decorations-table">
+      <thead>
+        <tr>
+          <th>الاسم</th>
+          <th>الهاتف</th>
+          <th>العنوان</th>
+          <th>المساحة</th>
+          <th>الفئة</th>
+          <th>اسم الديكور</th>
+          <th>صورة 1</th>
+          <th>صورة 2</th>
+          <th>صورة 3</th>
+          <th>ملاحظة</th>
+          <th>الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let form of formDecorations">
+          <td>{{ form.name }}</td>
+          <td>{{ form.phone }}</td>
+          <td>{{ form.address }}</td>
+          <td>{{ form.place_space }}</td>
+          <td>{{ form.decoration_category }}</td>
+          <td>{{ form.decoration_name }}</td>
+          <td><img *ngIf="form.place_image_1" [src]="form.place_image_1" class="table-image" /></td>
+          <td><img *ngIf="form.place_image_2" [src]="form.place_image_2" class="table-image" /></td>
+          <td><img *ngIf="form.place_image_3" [src]="form.place_image_3" class="table-image" /></td>
+          <td>{{ form.note || '-' }}</td>
+          <td>
+            <button class="btn-delete" (click)="deleteFormDecoration(form._id)"> <i class="fa-solid fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

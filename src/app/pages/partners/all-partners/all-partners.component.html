@@ -1,0 +1,40 @@
+<div class="all-partners rtl p-6">
+  <div class="page-header">
+    <h1>الشركاء</h1>
+    <p>عرض جميع الشركاء المسجلين</p>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-text">جار التحميل...</div>
+  <div *ngIf="errorMessage" class="error-text">{{ errorMessage }}</div>
+
+  <div *ngIf="partners.length > 0" class="partners-container">
+    <div class="table-header">
+      <div class="header-cell">الصورة</div>
+      <div class="header-cell">الاسم</div>
+      <div class="header-cell">الوصف</div>
+      <div class="header-cell">إجراءات</div>
+    </div>
+
+    <div class="table-body">
+      <div class="table-row" *ngFor="let partner of partners">
+        <div class="table-cell">
+          <img *ngIf="partner.image" [src]="partner.image" class="thumbnail" />
+        </div>
+        <div class="table-cell">{{ partner.name }}</div>
+        <div class="table-cell">{{ partner.description }}</div>
+        <div class="table-cell action-buttons">
+          <button class="btn-edit" (click)="goToEdit(partner._id)">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="btn-delete" (click)="deletePartner(partner._id)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && partners.length === 0" class="no-data">
+    لا يوجد شركاء حالياً.
+  </div>
+</div>

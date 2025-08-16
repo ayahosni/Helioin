@@ -1,0 +1,120 @@
+<div class="form-container">
+  <h2 class="form-title">إنشاء قسم جديد</h2>
+  <form (ngSubmit)="createDepartment()" #departmentForm="ngForm">
+
+    <div class="form-group">
+      <input
+        type="text"
+        [(ngModel)]="title"
+        name="title"
+        placeholder="عنوان القسم"
+        required
+        #titleInput="ngModel"
+      />
+      <div *ngIf="titleInput.invalid && titleInput.touched" class="error">
+        الحقل مطلوب
+      </div>
+    </div>
+
+    <div class="form-group">
+      <textarea
+        [(ngModel)]="description"
+        name="description"
+        placeholder="وصف القسم"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        [(ngModel)]="status_of_sale"
+        name="status_of_sale"
+        placeholder="حالة البيع (مثلاً: متاح)"
+        required
+        #statusInput="ngModel"
+      />
+      <div *ngIf="statusInput.invalid && statusInput.touched" class="error">
+        هذا الحقل مطلوب
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="number"
+        [(ngModel)]="price"
+        name="price"
+        placeholder="السعر"
+        required
+        #priceInput="ngModel"
+      />
+      <div *ngIf="priceInput.invalid && priceInput.touched" class="error">
+        السعر مطلوب
+      </div>
+    </div>
+
+    <div class="form-row">
+      <input type="number" [(ngModel)]="area" name="area" placeholder="المساحة (m²)" />
+      <input type="number" [(ngModel)]="rooms" name="rooms" placeholder="عدد الغرف" />
+    </div>
+
+    <div class="form-row">
+      <input type="number" [(ngModel)]="bathrooms" name="bathrooms" placeholder="عدد الحمامات" />
+      <select [(ngModel)]="type" name="type" required>
+        <option value="sale">للبيع</option>
+        <option value="rent">للإيجار</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="location" name="location" placeholder="الموقع" required />
+    </div>
+
+    <div class="form-row">
+      <input type="text" [(ngModel)]="designer" name="designer" placeholder="المصمم" required />
+      <input type="text" [(ngModel)]="installment" name="installment" placeholder="القسط" />
+    </div>
+
+    <div class="form-group">
+      <textarea [(ngModel)]="note" name="note" placeholder="ملاحظات" rows="2"></textarea>
+    </div>
+
+    <!-- Features -->
+    <div class="form-group features-group">
+      <label>المميزات:</label>
+      <div class="feature-input">
+        <input #featureInput type="text" placeholder="أضف ميزة" />
+        <button type="button" (click)="addFeature(featureInput.value); featureInput.value=''">أضف</button>
+      </div>
+      <ul>
+        <li *ngFor="let feature of features; let i = index">
+          {{ feature }} <button type="button" (click)="removeFeature(i)">x</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Available Dates -->
+    <div class="form-group dates-group">
+      <label>تواريخ التوفر:</label>
+      <div class="date-input">
+        <input #dateInput type="date" />
+        <button type="button" (click)="addAvailableDate(dateInput.value); dateInput.value=''">أضف</button>
+      </div>
+      <ul>
+        <li *ngFor="let date of available_dates; let i = index">
+          {{ date }} <button type="button" (click)="removeAvailableDate(i)">x</button>
+        </li>
+      </ul>
+    </div>
+
+  
+
+    <div class="form-group">
+      <input type="file" (change)="onFileChange($event)" multiple />
+    </div>
+
+    <button type="submit" [disabled]="departmentForm.invalid" class="submit-btn">
+      إنشاء القسم
+    </button>
+  </form>
+</div>

@@ -1,0 +1,38 @@
+<div class="form-container">
+  <h1 class="form-title">تعديل جهة الاتصال</h1>
+
+  <form (ngSubmit)="saveContact()" class="contact-form">
+    <div class="grid md:grid-cols-2 gap-4">
+      <div>
+        <label>البريد الإلكتروني</label>
+        <input [(ngModel)]="contact.gmail" name="gmail" required>
+      </div>
+      <div>
+        <label>الهاتف</label>
+        <input [(ngModel)]="contact.phone" name="phone" required>
+      </div>
+      <div class="md:col-span-2">
+        <label>العنوان</label>
+        <input [(ngModel)]="contact.location" name="location">
+      </div>
+      <div>
+        <label>Facebook</label>
+        <input [(ngModel)]="contact.facebook_link" name="facebook_link">
+      </div>
+      <div>
+        <label>Instagram</label>
+        <input [(ngModel)]="contact.instagram_link" name="instagram_link">
+      </div>
+      <div>
+        <label>Twitter</label>
+        <input [(ngModel)]="contact.twitter_link" name="twitter_link">
+      </div>
+      <div>
+        <label>LinkedIn</label>
+        <input [(ngModel)]="contact.linkedin_link" name="linkedin_link">
+      </div>
+    </div>
+
+    <button type="submit" class="btn-save">حفظ التعديلات</button>
+  </form>
+</div>

@@ -1,0 +1,61 @@
+<div class="form-container">
+  <h2>تعديل العقار</h2>
+  <form #editForm="ngForm" (ngSubmit)="updateDepartment(editForm)">
+
+    <input type="text" [(ngModel)]="department.title" name="title" placeholder="العنوان" required />
+    
+    <textarea [(ngModel)]="department.description" name="description" rows="3" placeholder="الوصف"></textarea>
+
+    <input type="text" [(ngModel)]="department.status_of_sale" name="status_of_sale" placeholder="حالة البيع" required />
+
+    <input type="number" [(ngModel)]="department.price" name="price" placeholder="السعر" required />
+
+    <input type="number" [(ngModel)]="department.area" name="area" placeholder="المساحة (م²)" />
+
+    <input type="number" [(ngModel)]="department.rooms" name="rooms" placeholder="عدد الغرف" />
+    
+    <input type="number" [(ngModel)]="department.bathrooms" name="bathrooms" placeholder="عدد الحمامات" />
+
+    <select [(ngModel)]="department.type" name="type" required>
+      <option value="sale">للبيع</option>
+      <option value="rent">للإيجار</option>
+    </select>
+
+    <input type="text" [(ngModel)]="department.location" name="location" placeholder="الموقع" required />
+    
+    <input type="text" [(ngModel)]="department.designer" name="designer" placeholder="المصمم" required />
+
+    <input type="text" [(ngModel)]="department.installment" name="installment" placeholder="القسط" />
+
+    <textarea [(ngModel)]="department.note" name="note" placeholder="ملاحظات" rows="2"></textarea>
+
+    <!-- Features -->
+    <div>
+      <label>المميزات:</label>
+      <input #featureInput type="text" placeholder="أضف ميزة" />
+      <button type="button" (click)="department.features.push(featureInput.value); featureInput.value=''">إضافة</button>
+      <ul>
+        <li *ngFor="let f of department.features; let i=index">
+          {{ f }} <button type="button" (click)="department.features.splice(i,1)">x</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Available Dates -->
+    <div>
+      <label>تواريخ التوفر:</label>
+      <input #dateInput type="date" />
+      <button type="button" (click)="department.available_dates.push(dateInput.value); dateInput.value=''">إضافة</button>
+      <ul>
+        <li *ngFor="let d of department.available_dates; let i=index">
+          {{ d | date:'mediumDate' }} <button type="button" (click)="department.available_dates.splice(i,1)">x</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Images -->
+    <input type="file" (change)="onFileChange($event)" multiple />
+
+    <button type="submit" [disabled]="editForm.invalid">تحديث</button>
+  </form>
+</div>

@@ -1,0 +1,45 @@
+<nav class="navbar">
+  <!-- Left section (أيقونات) -->
+  <div class="left-section">
+    <div class="nav-icons">
+      <!-- Notifications -->
+      <div class="notification-wrapper">
+        <button class="icon-btn" (click)="toggleNotifications($event)">
+          <i class="fa-solid fa-bell"></i>
+          <span *ngIf="unreadCount > 0" class="badge">{{ unreadCount }}</span>
+        </button>
+
+        <div class="dropdown-menu" [class.show]="notifDropdownOpen">
+          <h4>Notifications</h4>
+          <div *ngIf="notifications.length === 0">No notifications</div>
+          <ul>
+            <li *ngFor="let n of notifications"
+                (click)="markAsRead(n._id)"
+                [class.unread]="!n.isRead">
+              {{ n.message }}
+              <small>{{ n.createdAt | date:'short' }}</small>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <!-- User dropdown -->
+    <div class="user-dropdown" (click)="toggleUserDropdown($event)">
+      <img src="https://randomuser.me/api/portraits/men/88.jpg" class="avatar" />
+      <div class="dropdown-menu" [class.show]="userDropdownOpen">
+        <p class="username">Admin</p>
+        <button (click)="logout()" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right section (اللوجو) -->
+  <div class="right-section">
+    <h1 class="logo">Helioin</h1>
+  </div>
+</nav>

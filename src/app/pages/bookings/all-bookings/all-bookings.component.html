@@ -1,0 +1,42 @@
+<div class="all-bookings rtl">
+  <div class="page-header">
+    <h1>كل الحجوزات</h1>
+    <p>عرض جميع حجوزات العملاء لمعاينة  العقارات</p>
+  </div>
+
+  <div class="bookings-container">
+    <div class="table-header">
+      <div class="header-cell">اسم العميل</div>
+      <div class="header-cell">البريد الإلكتروني</div>
+      <div class="header-cell">الهاتف</div>
+      <div class="header-cell">اسم العقار</div>
+      <div class="header-cell">التاريخ</div>
+      <div class="header-cell">ملاحظات</div>
+      <div class="header-cell">إجراءات</div>
+    </div>
+
+    <div class="table-body">
+      <div class="table-row" *ngFor="let booking of bookings">
+        <div class="table-cell">{{ booking.first_name }} {{ booking.last_name }}</div>
+        <div class="table-cell">{{ booking.email }}</div>
+        <div class="table-cell">{{ booking.phone }}</div>
+        <div class="table-cell">{{ booking.department_name || 'غير متوفر' }}</div>
+        <div class="table-cell">{{ booking.date | date: 'mediumDate' }}</div>
+        <div class="table-cell">{{ booking.note || '—' }}</div>
+
+        <div class="action-buttons">
+          <a [routerLink]="['/bookings/edit', booking._id]" class="icon-btn" title="تعديل">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="#4ece93" viewBox="0 0 24 24">
+              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.41l-2.34-2.34a1.003 1.003 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+            </svg>
+          </a>
+          <button (click)="deleteBooking(booking._id)" class="icon-btn" title="حذف">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="#dc3545" viewBox="0 0 24 24">
+              <path d="M16 9v10H8V9h8m-1.5-6H9.5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

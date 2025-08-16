@@ -1,0 +1,75 @@
+<div class="all-departments rtl">
+  <div class="page-header">
+    <h1>كل العقارات</h1>
+    <p>عرض جميع العقارات المتاحة وإدارتها</p>
+  </div>
+
+  <div class="departments-container">
+    <div class="table-header">
+      <div class="header-cell">العنوان</div>
+      <div class="header-cell">الوصف</div>
+      <div class="header-cell">حالة البيع</div>
+      <div class="header-cell">السعر</div>
+      <div class="header-cell">الحمامات</div>
+      <div class="header-cell">الغرف</div>
+      <div class="header-cell">المساحة</div>
+      <div class="header-cell">النوع</div>
+      <div class="header-cell">الموقع</div>
+      <div class="header-cell">المصمم</div>
+      <div class="header-cell">القسط</div>
+      <div class="header-cell">ملاحظات</div>
+      <div class="header-cell">المميزات</div>
+      <div class="header-cell">تواريخ التوفر</div>
+      <div class="header-cell">الصور</div>
+      <div class="header-cell">إجراءات</div>
+    </div>
+
+    <div class="table-body">
+      <div class="table-row" *ngFor="let dep of departments">
+        <div class="table-cell">{{ dep.title }}</div>
+        <div class="table-cell">{{ dep.description | slice:0:50 }}{{ dep.description.length > 50 ? '...' : '' }}</div>
+        <div class="table-cell">{{ dep.status_of_sale }}</div>
+        <div class="table-cell">{{ dep.price | number:'1.0-0' }}</div>
+        <div class="table-cell">{{ dep.number_of_bathrooms }}</div>
+        <div class="table-cell">{{ dep.number_of_bedrooms }}</div>
+        <div class="table-cell">{{ dep.space }}</div>
+        <div class="table-cell">{{ dep.type }}</div>
+        <div class="table-cell">{{ dep.location }}</div>
+        <div class="table-cell">{{ dep.designer }}</div>
+        <div class="table-cell">{{ dep.installment }}</div>
+        <div class="table-cell">{{ dep.note }}</div>
+        <div class="table-cell">
+          <ul>
+            <li *ngFor="let f of dep.features">{{ f }}</li>
+          </ul>
+        </div>
+        <div class="table-cell">
+          <ul>
+            <li *ngFor="let d of dep.available_dates">{{ d | date:'mediumDate' }}</li>
+          </ul>
+        </div>
+        <div class="table-cell">
+          <div *ngIf="dep.image_1 || dep.image_2 || dep.image_3 || dep.image_4" class="image-container">
+            <img *ngIf="dep.image_1" [src]="dep.image_1" class="thumbnail" />
+            <img *ngIf="dep.image_2" [src]="dep.image_2" class="thumbnail" />
+            <img *ngIf="dep.image_3" [src]="dep.image_3" class="thumbnail" />
+            <img *ngIf="dep.image_4" [src]="dep.image_4" class="thumbnail" />
+          </div>
+          <span *ngIf="!dep.image_1 && !dep.image_2 && !dep.image_3 && !dep.image_4">لا توجد صور</span>
+        </div>
+         <div class="action-buttons">
+          <a [routerLink]="['/departments/edit', dep._id]" class="icon-btn" title="تعديل">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="#4ece93" viewBox="0 0 24 24">
+              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.41l-2.34-2.34a1.003 1.003 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+            </svg>
+          </a>
+          <button (click)=" deleteDepartment(dep._id)" class="icon-btn" title="حذف">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="#dc3545" viewBox="0 0 24 24">
+              <path d="M16 9v10H8V9h8m-1.5-6H9.5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

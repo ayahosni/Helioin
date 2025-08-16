@@ -1,0 +1,138 @@
+.contacts-container {
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  text-align: right;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* العنوان */
+.contacts-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #660348;
+  margin-bottom: 1rem;
+  display: inline-block;
+  padding-bottom: 0.3rem;
+  margin-left: 250px;
+
+}
+
+/* زر إضافة */
+.btn-add {
+  background-color:   #b1097e;
+
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-left: 200px;
+}
+
+.btn-add:hover {
+  background-color:    #660348;
+
+}
+
+/* حاوية الجدول */
+.table-wrapper {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* الجدول */
+.contacts-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+/* رأس الجدول */
+.contacts-table thead {
+  background-color: #f9f7e9;
+  color: #333;
+  font-weight: 600;
+}
+
+.contacts-table th,
+.contacts-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* الصفوف */
+.contacts-table tbody tr:hover {
+  background-color: #f9fafb;
+  transition: 0.3s;
+}
+
+/* روابط التواصل */
+.social-links a {
+  margin-right: 0.5rem;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.social-links .facebook { color: #3b5998; }
+.social-links .instagram { color: #e4405f; }
+.social-links .twitter { color: #1da1f2; }
+.social-links .linkedin { color: #0077b5; }
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+/* أزرار الإجراءات */
+
+.btn-edit,
+.btn-delete {
+  padding: 0.35rem 0.9rem;
+  border: none;
+  margin-left: 5px;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-edit {
+  background-color: #4ece93;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #33b67a;
+  transform: scale(1.05);
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+.no-data, .loading-text, .error-text {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #666;
+}
+
+.error-text {
+  color: #f44336;
+}

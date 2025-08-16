@@ -1,0 +1,25 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #ffffff;
+  }
+  
+  .main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+  .content-area {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f9f7e9;
+    overflow-y: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .content-area {
+      padding: 1rem;
+    }
+  }

@@ -1,0 +1,200 @@
+.finishes-container {
+  padding: 1.5rem;
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  text-align: right;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.add-finish-btn {
+  background-color: #10b981;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-finish-btn:hover {
+  background-color: #059669;
+  transform: translateY(-2px);
+}
+
+.finishes-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.finishes-table th {
+  background: linear-gradient(90deg, #8b5cf6, #ec4899);
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+}
+
+.finishes-table td {
+  padding: 12px;
+  vertical-align: top;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* الصور */
+.finish-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.finish-sub-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  margin-right: 6px;
+}
+
+.process-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* أزرار الإجراءات */
+.actions-cell button {
+  margin: 0 4px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #2563eb;
+}
+
+.delete-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626;
+}
+
+.no-data {
+  text-align: center;
+  color: #6b7280;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .finishes-table, .finishes-table thead, .finishes-table tbody, .finishes-table th, .finishes-table td, .finishes-table tr {
+    display: block;
+  }
+
+  .finishes-table th {
+    text-align: right;
+  }
+
+  .finishes-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .finishes-table td::before {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: bold;
+    color: #6b7280;
+  }
+
+  .finishes-table td:nth-of-type(1)::before { content: "الصورة"; }
+  .finishes-table td:nth-of-type(2)::before { content: "التشطيبات"; }
+  .finishes-table td:nth-of-type(3)::before { content: "العمليات"; }
+  .finishes-table td:nth-of-type(4)::before { content: "الإجراءات"; }
+}
+.finishes-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.finishes-table th,
+.finishes-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.finishes-table th {
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.finish-image {
+  width: 80px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.actions-cell button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+}

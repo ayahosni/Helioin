@@ -1,0 +1,30 @@
+<div class="page-container">
+  <h1 class="page-title"> قائمة الديكورات</h1>
+
+  <div class="actions">
+    <button class="btn-add" (click)="router.navigate(['/decorations/add'])">
+       إضافة ديكور
+    </button>
+  </div>
+
+  <div *ngIf="decorations.length === 0" class="no-data">
+    لا يوجد بيانات
+  </div>
+
+  <div class="cards-grid">
+    <div *ngFor="let deco of decorations" class="card">
+      <img *ngIf="deco.image_1" [src]="deco.image_1" class="card-image" alt="صورة الديكور" />
+      
+      <div class="card-content">
+        <h2 class="card-title">{{ deco.name }}</h2>
+        <p class="card-description">{{ deco.description }}</p>
+        <p class="card-category">📂 {{ deco.category }}</p>
+
+        <div class="card-actions">
+          <button class="btn-edit" (click)="router.navigate(['/decorations/edit', deco._id])">تعديل</button>
+          <button class="btn-delete" (click)="deleteDecoration(deco._id)">حذف</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

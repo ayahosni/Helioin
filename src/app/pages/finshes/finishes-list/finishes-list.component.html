@@ -1,0 +1,69 @@
+<div class="finishes-container">
+  <div class="header">
+    <h1 class="page-title">قائمة التشطيبات</h1>
+    <button class="add-finish-btn" (click)="addFinish()">
+      <i class="fa-solid fa-plus"></i> إضافة تشطيب
+    </button>
+  </div>
+
+  <div *ngIf="isLoading" class="text-gray-500 mb-4">جار التحميل...</div>
+  <div *ngIf="errorMessage" class="text-red-500 mb-4">{{ errorMessage }}</div>
+
+  <table *ngIf="finishes.length > 0" class="finishes-table">
+    <thead>
+      <tr>
+        <th>الصورة</th>
+        <th>التشطيبات</th>
+        <th>العمليات</th>
+        <th>الإجراءات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let finish of finishes">
+        <!-- الصورة الرئيسية -->
+        <td class="text-center">
+          <img *ngIf="finish.main_image" [src]="finish.main_image" alt="صورة التشطيب" class="finish-image" />
+          <span *ngIf="!finish.main_image" class="text-gray-400 text-sm">لا توجد صورة</span>
+        </td>
+
+        <!-- أسماء التشطيبات -->
+        <td>
+          <ul>
+            <li *ngFor="let f of finish.finishies">
+              <strong>{{ f.name }}</strong>
+              <img *ngIf="f.image" [src]="f.image" class="finish-sub-image" alt="صورة فرعية" />
+              <ul>
+                <li *ngFor="let prop of f.properties">{{ prop }}</li>
+              </ul>
+            </li>
+          </ul>
+        </td>
+
+        <!-- العمليات -->
+        <td>
+          <ul>
+            <li *ngFor="let proc of finish.process" class="flex items-center gap-2 mb-1">
+              <img *ngIf="proc.icon_image" [src]="proc.icon_image" class="process-icon" alt="ايقونة العملية" />
+              <span>{{ proc.name }} - {{ proc.description }}</span>
+            </li>
+          </ul>
+        </td>
+
+        <!-- الإجراءات -->
+        <td class="actions-cell text-center">
+        <button class="edit-btn" (click)="editFinish(f._id)" *ngFor="let f of finish.finishies">
+  تعديل {{ f.name }}
+</button>
+
+          <button class="delete-btn" (click)="deleteFinish(finish._id)">
+            <i class="fa-solid fa-trash"></i> حذف
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!isLoading && finishes.length === 0" class="no-data">
+    لا توجد تشطيبات حالياً.
+  </div>
+</div>

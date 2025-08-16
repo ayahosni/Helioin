@@ -1,0 +1,81 @@
+.page-container {
+  font-family: 'Cairo', sans-serif;
+  min-height: 100vh;
+  direction: rtl; /* من اليمين لليسار */
+  text-align: right;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #660348;
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.forms-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.forms-table thead {
+  background-color: #f9f7e9;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.forms-table th, .forms-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+
+.forms-table tbody tr:hover {
+  background-color: #f9fafb;
+  transition: background-color 0.3s ease;
+}
+
+.form-image {
+  width: 80px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.btn-delete {
+  background-color: #ef4444;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: #dc2626;
+}

@@ -1,0 +1,24 @@
+<div class="form-container">
+  <h1 class="form-title">➕ إضافة ديكور جديد</h1>
+
+  <form (ngSubmit)="createDecoration()" class="decoration-form">
+    <input type="text" [(ngModel)]="name" name="name" placeholder="اسم الديكور" required />
+    <textarea [(ngModel)]="description" name="description" placeholder="الوصف" required></textarea>
+    <input type="text" [(ngModel)]="category" name="category" placeholder="الفئة" required />
+
+    <div class="file-group">
+      <label>الصورة 1:</label>
+      <input type="file" (change)="onFileChange($event, 'image_1')" />
+    </div>
+    <div class="file-group">
+      <label>الصورة 2:</label>
+      <input type="file" (change)="onFileChange($event, 'image_2')" />
+    </div>
+    <div class="file-group">
+      <label>الصورة 3:</label>
+      <input type="file" (change)="onFileChange($event, 'image_3')" />
+    </div>
+
+    <button type="submit" class="submit-btn">حفظ</button>
+  </form>
+</div>

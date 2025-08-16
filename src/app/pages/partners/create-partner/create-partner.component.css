@@ -1,0 +1,87 @@
+/* الحاوية */
+.add-partner-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  font-family: 'Cairo', sans-serif;
+}
+
+/* العنوان */
+.add-partner-form h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+  text-align: right;
+}
+
+/* الليبل */
+.add-partner-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #374151;
+  text-align: right;
+}
+
+/* الحقول */
+.add-partner-form input[type="text"],
+.add-partner-form textarea,
+.add-partner-form input[type="file"] {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #374151;
+  transition: all 0.2s;
+}
+
+.add-partner-form input[type="text"]:focus,
+.add-partner-form textarea:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 5px rgba(16, 185, 129, 0.3);
+}
+
+/* الزر */
+.add-partner-form button {
+  background-color: #10b981;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.add-partner-form button:hover {
+  background-color: #059669;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* النصوص داخل textarea */
+.add-partner-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* RTL */
+.add-partner-form,
+.add-partner-form input,
+.add-partner-form textarea,
+.add-partner-form label,
+.add-partner-form button {
+  direction: rtl;
+  text-align: right;
+}

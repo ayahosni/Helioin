@@ -1,0 +1,52 @@
+<div class="register-container">
+  <div class="register-card">
+    <div class="register-header">
+      <h1>إنشاء حساب مشرف</h1>
+      <p>سجل مستخدم مشرف جديد</p>
+    </div>
+    
+    <form class="register-form" (ngSubmit)="onRegister()">
+      <div class="form-group">
+        <label for="name">الاسم الكامل</label>
+        <input 
+          type="text" 
+          id="name" 
+          [(ngModel)]="name" 
+          name="name"
+          required
+          placeholder="أدخل اسمك الكامل"
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="email">البريد الإلكتروني</label>
+        <input 
+          type="email" 
+          id="email" 
+          [(ngModel)]="email" 
+          name="email"
+          required
+          placeholder="أدخل بريدك الإلكتروني"
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="password">كلمة المرور</label>
+        <input 
+          type="password" 
+          id="password" 
+          [(ngModel)]="password" 
+          name="password"
+          required
+          placeholder="أنشئ كلمة مرور"
+        >
+      </div>
+      
+      <button type="submit" class="register-btn">إنشاء الحساب</button>
+    </form>
+    
+    <div class="register-footer">
+      <p>لديك حساب بالفعل؟ <a routerLink="/login">تسجيل الدخول</a></p>
+    </div>
+  </div>
+</div>

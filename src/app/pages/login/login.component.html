@@ -1,0 +1,45 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h1>Helioin</h1>
+      <p>تسجيل الدخول إلى حسابك</p>
+    </div>
+
+    <form class="login-form" (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <label for="email">البريد الإلكتروني</label>
+        <input 
+          type="email" 
+          id="email" 
+          [(ngModel)]="email" 
+          name="email"
+          required
+          placeholder="أدخل بريدك الإلكتروني"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="password">كلمة المرور</label>
+        <input 
+          type="password" 
+          id="password" 
+          [(ngModel)]="password" 
+          name="password"
+          required
+          placeholder="أدخل كلمة المرور"
+        >
+      </div>
+
+      <!-- ✅ رسالة الخطأ -->
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="login-btn">تسجيل الدخول</button>
+    </form>
+
+    <div class="login-footer">
+      <p>ليس لديك حساب؟ <a routerLink="/register">سجل هنا</a></p>
+    </div>
+  </div>
+</div>

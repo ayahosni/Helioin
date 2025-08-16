@@ -1,0 +1,44 @@
+<div class="contacts-container">
+  <h1 class="contacts-title">قائمة جهات الاتصال</h1>
+
+  <button routerLink="/contacts/create" class="btn-add mb-4">
+    إضافة جهة اتصال
+  </button>
+
+  <div *ngIf="contacts.length === 0" class="text-gray-500">لا يوجد بيانات</div>
+
+  <div class="table-wrapper">
+    <table class="contacts-table">
+      <thead>
+        <tr>
+          <th>البريد الإلكتروني</th>
+          <th>الهاتف</th>
+          <th>العنوان</th>
+          <th>روابط التواصل</th>
+          <th class="text-center">الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of contacts">
+          <td>{{ contact.gmail }}</td>
+          <td>📞 {{ contact.phone }}</td>
+          <td>📍 {{ contact.location }}</td>
+          <td>
+            <div class="social-links">
+              <a *ngIf="contact.facebook_link" [href]="contact.facebook_link" target="_blank" class="facebook">Facebook</a>
+              <a *ngIf="contact.instagram_link" [href]="contact.instagram_link" target="_blank" class="instagram">Instagram</a>
+              <a *ngIf="contact.twitter_link" [href]="contact.twitter_link" target="_blank" class="twitter">Twitter</a>
+              <a *ngIf="contact.linkedin_link" [href]="contact.linkedin_link" target="_blank" class="linkedin">LinkedIn</a>
+            </div>
+          </td>
+          <td class="actions">
+            <button (click)="editContact(contact)" class="btn-edit">            <i class="fa-solid fa-pen-to-square"></i>
+</button>
+            <button (click)="deleteContact(contact._id)" class="btn-delete">            <i class="fa-solid fa-trash"></i>
+</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

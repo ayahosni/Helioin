@@ -1,0 +1,38 @@
+<div class="page-container">
+  <h1 class="page-title">قائمة  عرض طلبات العملاء للتشطيبات   </h1>
+
+  <div *ngIf="finishForms.length === 0" class="no-data">
+    لا يوجد بيانات
+  </div>
+
+  <div class="table-wrapper">
+    <table class="finish-forms-table">
+      <thead>
+        <tr>
+          <th>الاسم</th>
+          <th>رقم الهاتف</th>
+          <th>المساحة</th>
+          <th>الموقع</th>
+          <th>الخدمة</th>
+          <th>تاريخ الإنشاء</th>
+          <th>الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let form of finishForms">
+          <td>{{ form.name || 'بدون اسم' }}</td>
+          <td>{{ form.phone }}</td>
+          <td>{{ form.space }}</td>
+          <td>{{ form.location }}</td>
+          <td>{{ form.service }}</td>
+          <td>{{ form.createdAt | date:'yyyy-MM-dd HH:mm' }}</td>
+          <td>
+            <button (click)="deleteForm(form._id)" class="btn-delete">
+              حذف
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

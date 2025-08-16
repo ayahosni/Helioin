@@ -1,0 +1,44 @@
+<div class="all-requests rtl p-6">
+  <div class="page-header">
+    <h1>قائمة الطلبات</h1>
+    <p>عرض جميع الطلبات الواردة من العملاء</p>
+  </div>
+
+  <div class="requests-container">
+    <div *ngIf="isLoading" class="loading-text">جار التحميل...</div>
+    <div *ngIf="errorMessage" class="error-text">{{ errorMessage }}</div>
+
+    <div *ngIf="requests.length > 0" class="table-wrapper">
+      <div class="table-header">
+        <div class="header-cell">#</div>
+        <div class="header-cell">الاسم</div>
+        <div class="header-cell">البريد الإلكتروني</div>
+        <div class="header-cell">الهاتف</div>
+        <div class="header-cell">الرسالة</div>
+        <div class="header-cell">إجراءات</div>
+      </div>
+
+      <div class="table-body">
+        <div class="table-row" *ngFor="let req of requests; let i = index">
+          <div class="table-cell">{{ i + 1 }}</div>
+          <div class="table-cell">{{ req.first_name }} {{ req.last_name }}</div>
+          <div class="table-cell">{{ req.email }}</div>
+          <div class="table-cell">{{ req.phone }}</div>
+          <div class="table-cell">{{ req.message }}</div>
+          <div class="table-cell action-buttons">
+            <button class="btn-edit" (click)="goToEdit(req._id)" title="تعديل">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button class="btn-delete" (click)="deleteRequest(req._id)" title="حذف">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!isLoading && requests.length === 0" class="no-data">
+      لا توجد طلبات حالياً.
+    </div>
+  </div>
+</div>

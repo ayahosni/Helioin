@@ -1,0 +1,68 @@
+<div class="edit-booking" *ngIf="!isLoading; else loading">
+  <div class="page-header">
+    <h1>تعديل الحجز</h1>
+    <p>تحديث بيانات الحجز</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  <div class="form-container" *ngIf="booking && !errorMessage">
+    <form class="booking-form" (ngSubmit)="onSubmit()">
+
+      <!-- الاسم الأول واسم العائلة -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>الاسم الأول</label>
+          <input type="text" [(ngModel)]="booking.first_name" name="first_name" required />
+        </div>
+        <div class="form-group">
+          <label>اسم العائلة</label>
+          <input type="text" [(ngModel)]="booking.last_name" name="last_name" required />
+        </div>
+      </div>
+
+      <!-- البريد الإلكتروني و الهاتف -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>البريد الإلكتروني</label>
+          <input type="email" [(ngModel)]="booking.email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label>الهاتف</label>
+          <input type="tel" [(ngModel)]="booking.phone" name="phone" required />
+        </div>
+      </div>
+
+      <!-- التاريخ -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>التاريخ</label>
+          <input type="date" [(ngModel)]="booking.date" name="date" required />
+        </div>
+      </div>
+
+      <!-- ملاحظات -->
+      <div class="form-group">
+        <label>ملاحظات</label>
+        <textarea [(ngModel)]="booking.note" name="note" rows="3"></textarea>
+      </div>
+
+      <!-- القسم -->
+      <div class="form-group">
+        <label>القسم</label>
+        <select [(ngModel)]="booking.department_id" name="department_id" (change)="onDepartmentChange($event)">
+          <option *ngFor="let dept of departments" [value]="dept._id">{{ dept.title }}</option>
+        </select>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="onCancel()">إلغاء</button>
+        <button type="submit" class="btn-primary">تحديث الحجز</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>جاري تحميل بيانات الحجز...</p>
+</ng-template>
