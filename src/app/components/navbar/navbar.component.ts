@@ -38,7 +38,10 @@ export class NavbarComponent {
     }
   }
 
-  logout() {
-    console.log('Logout clicked');
-  }
+ logout(event: Event) {
+  event.stopPropagation(); // يمنع تأثير toggleUserDropdown
+  console.log('Logout clicked');
+  // هنا ممكن تضيفي كود تسجيل الخروج الفعلي
+}
+
 }
