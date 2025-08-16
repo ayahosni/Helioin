@@ -5,11 +5,11 @@
     <p class="dashboard-subtitle">مرحباً بك 👋، هنا يمكنك متابعة آخر الإحصاءات والأنشطة الخاصة بالنظام.</p>
   </div>
 
-  <!-- البطاقات -->
+  <!-- شبكة البطاقات -->
   <div class="stats-grid">
     <div class="stat-card" *ngFor="let stat of stats">
       <h2 class="stat-number">{{ stat.value }}</h2>
-      <p class="stat-name">{{ stat.key | titlecase }}</p>
+      <p class="stat-name">{{ stat.key }}</p> <!-- الاسم بالعربي -->
     </div>
   </div>
 </div>
