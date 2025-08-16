@@ -26,10 +26,10 @@ export class DashboardComponent implements OnInit {
     partners: 'الشركاء',
     finishes: 'التشطيبات',
     contacts: 'جهات الاتصال',
-    decorations: 'الزينة',
-    formsRealestate: 'نماذج العقارات',
-    formDecorations: 'نماذج الزينة',
-    finishForms: 'نماذج التشطيب',
+    decorations: 'الديكورات',
+    formsRealestate: 'نماذج طلب لعرض العقارات',
+    formDecorations: 'نماذج  طلب لعمل الديكورات',
+    finishForms: 'نماذج طلب لعمل التشطيب',
     bookings: 'الحجوزات'
   };
 
