@@ -44,10 +44,13 @@
           </ul>
         </div>
         <div class="table-cell">
-          <ul>
-            <li *ngFor="let d of dep.available_dates">{{ d | date:'mediumDate' }}</li>
-          </ul>
-        </div>
+  <ul>
+    <li *ngFor="let d of dep.available_dates">
+      {{ d | date:'mediumDate' }}
+    </li>
+  </ul>
+</div>
+
         <div class="table-cell">
           <div *ngIf="dep.image_1 || dep.image_2 || dep.image_3 || dep.image_4" class="image-container">
             <img *ngIf="dep.image_1" [src]="dep.image_1" class="thumbnail" />

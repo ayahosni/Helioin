@@ -163,14 +163,16 @@
 }
 .logo {
   font-family: 'Poppins', 'Cairo', sans-serif; /* خط جميل */
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem); /* الحجم يتأقلم مع الشاشة */
   font-weight: 800;
   background: linear-gradient(135deg, #8b004b, #b8860b); /* وردي غامق → أصفر غامق */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
   letter-spacing: 2px;
+  text-align: center; /* يتوسّط في الشاشات الصغيرة */
 }
+
 .notification-wrapper {
   position: relative;
 }

@@ -16,11 +16,47 @@ export class AllDepartmentsComponent implements OnInit {
 
   constructor(private api: ApiService, public router: Router) {}
 
-  ngOnInit() {
-    this.api.getAllDepartments().subscribe((res: any) => {
-      this.departments = res.departments || res;
+ // ngOnInit
+ngOnInit() {
+  this.api.getAllDepartments().subscribe((res: any) => {
+    this.departments = (res.departments || res).map((dep: any) => {
+      let availableDates: Date[] = [];
+
+      if (Array.isArray(dep.available_dates)) {
+        availableDates = dep.available_dates.flatMap((d: any) => {
+          if (typeof d === 'string' && !d.startsWith('[')) {
+            return [this.parseDate(d)];
+          }
+          try {
+            const parsed = JSON.parse(d);
+            return Array.isArray(parsed)
+              ? parsed.map(p => this.parseDate(p))
+              : [this.parseDate(parsed)];
+          } catch {
+            return [];
+          }
+        });
+      }
+
+      return {
+        ...dep,
+        available_dates: availableDates.filter(d => d instanceof Date && !isNaN(d.getTime()))
+      };
     });
-  }
+  });
+}
+
+// دالة صغيرة تنظف وتحول النص لتاريخ
+private parseDate(d: string): Date {
+  if (!d) return new Date(NaN);
+
+  // إصلاح الغلط +00:003 → +00:00
+  const fixed = d.replace('+003', '+00:00');
+
+  return new Date(fixed);
+}
+
+
 
   deleteDepartment(id: string) {
     if (confirm('Are you sure?')) {

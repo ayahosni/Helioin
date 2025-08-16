@@ -8,7 +8,12 @@
   border-left: 1px solid #eee; /* بدل border-right */
   overflow-y: auto; /* تمكين السكرول */
     margin-left: auto; /* يدفع السايدبار على اليمين */
+    margin-top: -10px;
 
+}
+i {
+  color: #333; /* أو أي لون يبان على الخلفية */
+  font-size: 1.5rem; /* للتحكم في الحجم */
 }
 
 /* شكل الـ Scrollbar */
@@ -88,5 +93,30 @@
   .nav-item {
     justify-content: center;
     padding: 1rem;
+  }
+}
+.icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: #333; /* يخلي لون الأيقونات دايمًا باين */
+}
+
+/* الوضع الريسبونسف */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 72px;
+  }
+  .nav-item span,
+  .nav-section h3 {
+    display: none; /* نخفي النصوص */
+  }
+  .nav-item {
+    justify-content: center;
+    padding: 1rem;
+  }
+  .icon {
+    width: 28px;   /* تكبير الأيقونة */
+    height: 28px;
   }
 }
