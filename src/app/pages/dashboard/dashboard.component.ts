@@ -19,6 +19,20 @@ export class DashboardComponent implements OnInit {
   stats: StatItem[] = [];
   loading: boolean = true;
 
+  // خريطة تحويل الـ keys للعربي
+  keyMap: { [key: string]: string } = {
+    departments: 'الأقسام',
+    requests: 'الطلبات',
+    partners: 'الشركاء',
+    finishes: 'التشطيبات',
+    contacts: 'جهات الاتصال',
+    decorations: 'الزينة',
+    formsRealestate: 'نماذج العقارات',
+    formDecorations: 'نماذج الزينة',
+    finishForms: 'نماذج التشطيب',
+    bookings: 'الحجوزات'
+  };
+
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
@@ -28,9 +42,9 @@ export class DashboardComponent implements OnInit {
   loadStats() {
     this.apiService.getAllStats().subscribe({
       next: (data) => {
-        // تحويل object إلى array مع type-safe
+        // تحويل object إلى array مع ترجمة المفاتيح للعربي
         this.stats = Object.keys(data).map(key => ({
-          key: key,
+          key: this.keyMap[key] || key, // لو مالقيتش ترجمة خلي الاسم الأصلي
           value: Number(data[key])
         }));
         this.loading = false;
