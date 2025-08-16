@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
     formsRealestate: 'نماذج طلب لعرض العقارات',
     formDecorations: 'نماذج  طلب لعمل الديكورات',
     finishForms: 'نماذج طلب لعمل التشطيب',
-    bookings: 'الحجوزات'
+    bookings: ' الحجوزات لمعاينة عقار'
   };
 
   constructor(private apiService: ApiService) {}
