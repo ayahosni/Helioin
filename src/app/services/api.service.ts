@@ -28,7 +28,7 @@ export interface ApiResponse {
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  private baseUrl = 'http://localhost:5000/app/dashboard';
+  private baseUrl = 'https://akarat-six.vercel.app/app/dashboard';
 
   constructor(private http: HttpClient) {}
 
