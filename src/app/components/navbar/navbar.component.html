@@ -3,11 +3,7 @@
   <div class="left-section">
     <div class="nav-icons">
       <!-- Notifications -->
-      <div class="notification-wrapper">
-        <button class="icon-btn" (click)="toggleNotifications($event)">
-          <i class="fa-solid fa-bell"></i>
-          <span *ngIf="unreadCount > 0" class="badge">{{ unreadCount }}</span>
-        </button>
+     
 
         <div class="dropdown-menu" [class.show]="notifDropdownOpen">
           <h4>Notifications</h4>
