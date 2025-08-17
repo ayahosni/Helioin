@@ -147,7 +147,7 @@ export class ApiService {
   }
 
   editRequest(id: string, data: any): Observable<any> {
-    return this.http.patch(`${this.baseUrl}/edit_request/${id}`, data, {
+    return this.http.post(`${this.baseUrl}/edit_request/${id}`, data, {
       withCredentials: true
     });
   }
