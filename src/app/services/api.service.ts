@@ -153,7 +153,7 @@ export class ApiService {
   }
 
   updateRequest(id: string, data: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/requests/${id}`, data);
+    return this.http.put(`${this.baseUrl}/edit_request/${id}`, data);
   }
 
   deleteRequest(id: string): Observable<any> {
