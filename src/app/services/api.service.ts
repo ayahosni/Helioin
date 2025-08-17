@@ -97,7 +97,7 @@ export class ApiService {
   }
 
   editDepartment(id: string, formData: FormData): Observable<any> {
-    return this.http.patch(`${this.baseUrl}/edit_department/${id}`, formData, {
+    return this.http.post(`${this.baseUrl}/edit_department/${id}`, formData, {
       withCredentials: true
     });
   }
@@ -122,7 +122,7 @@ export class ApiService {
   }
 
   editBooking(id: string, data: any): Observable<any> {
-    return this.http.patch(`${this.baseUrl}/edit_booking/${id}`, data, {
+    return this.http.post(`${this.baseUrl}/edit_booking/${id}`, data, {
       withCredentials: true
     });
   }
@@ -152,9 +152,7 @@ export class ApiService {
     });
   }
 
-  updateRequest(id: string, data: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/edit_request/${id}`, data);
-  }
+
 
   deleteRequest(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/delete_request/${id}`, {
@@ -176,7 +174,7 @@ export class ApiService {
   }
 
   editPartner(partnerId: string, formData: FormData): Observable<any> {
-    return this.http.patch(`${this.baseUrl}/edit_partner/${partnerId}`, formData, {
+    return this.http.post(`${this.baseUrl}/edit_partner/${partnerId}`, formData, {
       withCredentials: true
     });
   }
@@ -210,7 +208,7 @@ export class ApiService {
 
   // تحديث تشطيب موجود
   updateFinish(id: string, finish: Partial<Finish>): Observable<Finish> {
-    return this.http.put<Finish>(`${this.baseUrl}/edit_finish/${id}`, finish, {
+    return this.http.post<Finish>(`${this.baseUrl}/edit_finish/${id}`, finish, {
       withCredentials: true
     });
   }
@@ -249,7 +247,7 @@ export class ApiService {
     });
   }
   updateContact(contactData: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/update_contact`, contactData, { withCredentials: true });
+    return this.http.post(`${this.baseUrl}/update_contact`, contactData, { withCredentials: true });
   }
 
   deleteContact(id: string): Observable<any> {
@@ -283,7 +281,7 @@ export class ApiService {
   }
 
   updateDecoration(id: string, formData: FormData): Observable<any> {
-    return this.http.put(`${this.baseUrl}/edit_decoration/${id}`, formData, {
+    return this.http.post(`${this.baseUrl}/edit_decoration/${id}`, formData, {
       withCredentials: true
     });
   }
@@ -303,7 +301,7 @@ export class ApiService {
 
   // ------------------ Bulk Update API ------------------ //
   updateAllFinishesData(data: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/update_all_finishes`, data, {
+    return this.http.post(`${this.baseUrl}/update_all_finishes`, data, {
       withCredentials: true
     });
   }
