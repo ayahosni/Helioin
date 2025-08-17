@@ -27,17 +27,19 @@ export class ContactFormComponent implements OnInit {
 
   ngOnInit() {}
 
-  saveContact() {
-    if (this.isEdit) {
-      this.api.updateContact(this.contact).subscribe({
-        next: () => this.router.navigate(['/contacts']),
-        error: (err) => console.error(err)
-      });
-    } else {
-      this.api.createContact(this.contact).subscribe({
-        next: () => this.router.navigate(['/contacts']),
-        error: (err) => console.error(err)
-      });
-    }
+saveContact() {
+  if (this.isEdit && this.contactId) {
+    // تمرير contactId مع بيانات الاتصال
+    this.api.updateContact(this.contactId, this.contact).subscribe({
+      next: () => this.router.navigate(['/contacts']),
+      error: (err) => console.error(err)
+    });
+  } else {
+    this.api.createContact(this.contact).subscribe({
+      next: () => this.router.navigate(['/contacts']),
+      error: (err) => console.error(err)
+    });
   }
+}
+
 }
