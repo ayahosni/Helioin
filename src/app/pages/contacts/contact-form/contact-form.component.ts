@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../../services/api.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-form',
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
-  @Input() contact: any = {
+  contact: any = {
     gmail: '',
     phone: '',
     location: '',
@@ -21,25 +21,42 @@ export class ContactFormComponent implements OnInit {
     twitter_link: '',
     linkedin_link: ''
   };
-  @Input() isEdit = false;
 
-  constructor(private api: ApiService, private router: Router) {}
+  isEdit = false;
+  contactId?: string;
 
-  ngOnInit() {}
+  constructor(
+    private api: ApiService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
-saveContact() {
-  if (this.isEdit && this.contactId) {
-    // تمرير contactId مع بيانات الاتصال
-    this.api.updateContact(this.contactId, this.contact).subscribe({
-      next: () => this.router.navigate(['/contacts']),
-      error: (err) => console.error(err)
-    });
-  } else {
-    this.api.createContact(this.contact).subscribe({
-      next: () => this.router.navigate(['/contacts']),
-      error: (err) => console.error(err)
-    });
+  ngOnInit() {
+    // الحصول على الـ id من الرابط لمعرفة إذا كان تعديل
+    this.contactId = this.route.snapshot.paramMap.get('id') || undefined;
+    this.isEdit = !!this.contactId;
+
+    if (this.isEdit && this.contactId) {
+      this.api.getContactById(this.contactId).subscribe({
+        next: (data) => this.contact = data,
+        error: (err) => console.error(err)
+      });
+    }
   }
-}
 
+  saveContact() {
+    if (this.isEdit && this.contactId) {
+      // تحديث جهة الاتصال
+      this.api.updateContact(this.contactId, this.contact).subscribe({
+        next: () => this.router.navigate(['/contacts']),
+        error: (err) => console.error(err)
+      });
+    } else {
+      // إنشاء جهة اتصال جديدة
+      this.api.createContact(this.contact).subscribe({
+        next: () => this.router.navigate(['/contacts']),
+        error: (err) => console.error(err)
+      });
+    }
+  }
 }
