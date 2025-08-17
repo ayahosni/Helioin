@@ -247,7 +247,7 @@ export class ApiService {
     });
   }
 updateContact(id: string, contactData: any): Observable<any> {
-  return this.http.put(`${this.baseUrl}/contacts/${id}`, contactData, { withCredentials: true });
+  return this.http.post(`${this.baseUrl}/contacts/${id}`, contactData, { withCredentials: true });
 }
 
 
