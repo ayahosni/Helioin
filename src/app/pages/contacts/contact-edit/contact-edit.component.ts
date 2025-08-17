@@ -40,12 +40,13 @@ export class ContactEditComponent implements OnInit {
     }
   }
 
-  saveContact() {
-    if (this.contactId) {
-      this.api.updateContact(this.contactId, this.contact).subscribe({
-        next: () => this.router.navigate(['/contacts']),
-        error: (err) => console.error(err)
-      });
-    }
+saveContact() {
+  if (this.contactId) {
+    this.api.updateContact(this.contactId, this.contact).subscribe({
+      next: () => this.router.navigate(['/contacts']),
+      error: (err) => console.error(err)
+    });
   }
+}
+
 }
