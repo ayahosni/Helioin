@@ -38,7 +38,7 @@ export class EditRequestComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.apiService.updateRequest(this.request._id, this.request).subscribe({
+    this.apiService.editRequest(this.request._id, this.request).subscribe({
       next: () => {
         alert('تم تحديث الطلب بنجاح!');
         this.router.navigate(['/requests']);
