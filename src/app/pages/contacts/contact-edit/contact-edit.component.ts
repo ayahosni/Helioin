@@ -20,6 +20,8 @@ export class ContactEditComponent implements OnInit {
     instagram_link: '',
     twitter_link: '',
     linkedin_link: ''
+    contactId: string | null = null;
+
   };
 
   constructor(
@@ -28,18 +30,18 @@ export class ContactEditComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit() {
-    const contactId = this.route.snapshot.paramMap.get('id');
-    if (contactId) {
-      this.api.getContactById(contactId).subscribe({
-        next: (data) => this.contact = data,
-        error: (err) => console.error(err)
-      });
-    }
+ ngOnInit() {
+  this.contactId = this.route.snapshot.paramMap.get('id');
+  if (this.contactId) {
+    this.api.getContactById(this.contactId).subscribe({
+      next: (data) => this.contact = data,
+      error: (err) => console.error(err)
+    });
   }
-
-  saveContact() {
-    this.api.updateContact(this.contact).subscribe({
+}
+saveContact() {
+  if (this.contactId) {
+    this.api.updateContact(this.contactId, this.contact).subscribe({
       next: () => this.router.navigate(['/contacts']),
       error: (err) => console.error(err)
     });
