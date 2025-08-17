@@ -252,6 +252,7 @@ updateContact(id: string, contactData: any): Observable<any> {
 
 
 
+
   deleteContact(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/delete_contact/${id}`, { withCredentials: true });
   }
