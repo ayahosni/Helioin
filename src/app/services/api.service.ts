@@ -283,7 +283,7 @@ export class ApiService {
   }
 
   updateDecoration(id: string, formData: FormData): Observable<any> {
-    return this.http.put(`${this.baseUrl}/update_decoration/${id}`, formData, {
+    return this.http.put(`${this.baseUrl}/edit_decoration/${id}`, formData, {
       withCredentials: true
     });
   }
